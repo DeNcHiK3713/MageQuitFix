@@ -13,9 +13,9 @@ namespace MageQuitFix
     public static class UltrawidePatches
     {
         public static float DefaultAspectRatio = (float)16 / 9;
-        public static float NewAspectRatio = (float)Screen.width / Screen.height;
-        public static float AspectMultiplier = NewAspectRatio / DefaultAspectRatio;
-        public static float AspectDivider = DefaultAspectRatio / NewAspectRatio;
+        public static float NewAspectRatio => (float)Screen.width / Screen.height;
+        public static float AspectMultiplier => NewAspectRatio / DefaultAspectRatio;
+        public static float AspectDivider => DefaultAspectRatio / NewAspectRatio;
 
         [HarmonyPatch(typeof(CanvasScaler), "OnEnable")]
         [HarmonyPostfix]
