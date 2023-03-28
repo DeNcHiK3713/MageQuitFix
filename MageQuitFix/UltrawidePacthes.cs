@@ -16,6 +16,8 @@ namespace MageQuitFix
         public static float NewAspectRatio => (float)Screen.width / Screen.height;
         public static float AspectMultiplier => NewAspectRatio / DefaultAspectRatio;
         public static float AspectDivider => DefaultAspectRatio / NewAspectRatio;
+        public static float Offset => 800 * (1 + AspectMultiplier) * (1 - AspectMultiplier) * 0.25f; // 800 is default referenceResolution width
+
 
         [HarmonyPatch(typeof(CanvasScaler), "OnEnable")]
         [HarmonyPostfix]
